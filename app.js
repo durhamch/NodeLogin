@@ -33,15 +33,6 @@ passport.use(new LocalStrategy(function(username, password, done) {
    });
 }));
 
-passport.use(new LocalStrategy({
-    usernameField: 'email',
-    passwordField: 'passwd'
-  },
-  function(username, password, done) {
-    // ...
-  }
-));
-
 passport.serializeUser(function(user, done) {
   done(null, user.username);
 });
@@ -52,7 +43,7 @@ passport.deserializeUser(function(username, done) {
    });
 });
 
-pp.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
